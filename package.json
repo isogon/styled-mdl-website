@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server",
-    "start": "next start",
+    "start": "NODE_ENV=production node server",
     "build": "next build"
   },
   "dependencies": {
