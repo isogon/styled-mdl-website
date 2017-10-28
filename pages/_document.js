@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>Styled MDL</title>
+          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet" />
           {this.props.styleTags}
         </Head>
         <body>
