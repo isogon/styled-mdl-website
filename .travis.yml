@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "8"
+install: "true"
+script:
+  - openssl aes-256-cbc -K $encrypted_3eb7e093c707_key -iv $encrypted_3eb7e093c707_iv -in .travis/id_ecdsa.enc -out .travis/id_ecdsa -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 .travis/id_ecdsa
+  - ssh-add .travis/id_ecdsa
+  - mkdir -p ~/.ssh
+  - echo "$DEPLOY_HOST,$DEPLOY_IP ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHy3Tpfl2uHGnkXaMK1WvcoH/vdrdZy+pcz6XC+XPokWcw7FpS1OoC12a/9Pd5EeRD1tbvuubqKtRo1G97JXsfM=" >> ~/.ssh/known_hosts
+  - git remote add deploy $DEPLOY_USER@$DEPLOY_HOST:styled-mdl.isogon.io
+  - git push -f deploy HEAD:master
+branches:
+  only:
+  - master
+env:
+  global:
+    - secure: jbL5exQwJk4NenDj2DSg8QxKYMTxqgNyWK72nfUEYPtJs/kMQ3jZ1CZ1Z2Gq9V1DvmSavGNI9juVXJLjjyh5HouDfb2IBpGIJOVW54dCGcDFXUbN4e2vcbea52QrITqXOU+MdzpZ7uttCFO0u0iJb2NT/gWUxEPxjJ+8ZKxnRjeJIBlveJA/tk5grl2Z9cN6cZ0xnOu+LYaJb6dXuvSNaWB8LAjfx541FtqJEb5Kr94GKbtHBDkj2Gf/J6Yh+8s+s92FwW6X/DKzY5uFH0GiOj0bzn6hgKR2/zuMriOBiSocdpnX0sWidK2Ue/4KM1ZyOyC+R+29N+3XI9FnXtS250AsgJm3jgqhTRNe5cTJHOeGAuphxASfH5LtE+HE9d6t44Xw7LAv6Ds0hXAsJLEJMsUA33byRW9AdOlnJ1lSekxJVnAJgAwI8DWXqpsDAMxn1ttoQ/8bpeGhTFg0wMzxm4/G4JM5snvhK63RsVYxfGrSO1qOTKLFuqefzmsq3PbBfxVA+mp6lMb/qfmhJQ1aytP3FNCcwv6vhlDsACS5M1IM70cGjeK7OFM7v6XTjjXNeJMyRhlyZT7m16vUHk3H3dlT89xi5k+X7NhvbejiOsBuQKbFpQiITF5BhOMLcD2YzOYntHjtV4HDJn+V4uxXz48aMbZqqiQbjvsy1j1W0K8=
+    - secure: KJyANlGNBiIAqiMHCk3O9zO9w5k0DNJeyONrQqTcIfZ32wVVnJ4H0oKS00hYGXPfKF2wM4kmiVY/umfEgkmcGLydLJCxCXGuETRh+XAyCqcBuVPHdhRJItcKNs9YZxlPtI30Nnf67zEA7G4+2OhdegUscE7qvfU8BM0nFIApy8W/zhoI3eF2ELJago4d6zpay51/80uCdYG0v7C1nfMgCrp2HrViO2KGfOhNFcO7Ia8za6vla0s+lIcRHIq28wUDKnr2MEXs0u1OJlS1uwJtWCHwY/gGygCa1weWRYpKaELhgyM/+SSrUpiPpabOpixUbuhHJk7ESETUFgXdcj3jbhq2iwyLsedsQy5M1JemRrOJxjYIBTeJYWQro2K5jz5h0IYgJMRlf28/jEaqTmPzDGtofWS8feyKJTi6d5OYlmPBVNYYpUjzerWe97wDZyqM9kZYrLqOl+4X3UjrEw4xKSb4bte/IJz+AYhv2bWlbys79D/r3HRYZ8dA09GIFxfexlJ2bNzQVrnR/aKM5fiQn75U2IBhjQVBTG61pDYNHNEMMqS9GWoIOpFDVF9C7ZYX5taPWu68G+R1Grx5V/Yy2/JkB0LcYGCbR2as27VtJekQ/RpWYGunPtYUzQ8/JHOS/ActG56yetP+9sM2ajbso4MeNFPvyppw6h6IfZu4rj8=
+    - secure: fQw1wLwF7IQB22T5hGhMhcnuXUMk6rJEH8M/9mNu6LfXXAgjVIhHOffVTNSx/WoZ2yhd1HzIAOJ5VbIOVxemAQC1TmqN6JNlMcHFveqcMMRqipYfc5MZWqiXsFo4x2ydbKKjnLAG0KvfPxLUeUJsNAOVcq6+7gbkASMsRguMAJ9325JURf+F++YofCrlT2OLKOdZc5tIrIQR8AeKr4cHTmYQm4XSFkXr1J8D85VSp38cmkjfraaaggN4mifsc2KVV73kCteS0VzCdDicA4rTe2ztm9Gn5KnRlIqIA8r4ImzERDKSPNyw/wJNesXgMwIyDJYZjxBzLKSjLQfTC2Fkc0rYSTHpnHFTGKA7xXyq1CuVsGneXYBZNKOV/pDoxLS0pLMz61QunHXpRkLIiAWjHecV2faRcv08pJ2+yH9ivKtL3ftnCcNd3yEwj9l/kZB5wG+MDozD1zf79T8rxm8LzsfKclyn0IoZsgzv/KvR76WkOULV7GQPQ4t1DM0C9Lid2hfMM3VQaRDAGU8ZD3hSnvMUGv6lsiVyLtmD2Ki5CmC+iA0uuduhCLwq6cl/Jn3VqxK23LZaYQFYshC4PGvTZys/Nhuy4LtGXYUlr/JcwZ4rp9qIxJuZsXYhVyM3qWKpjTuqUUL6IygIAmldFatB++tYKx/38s8DoRDZGOykszg=

@@ -10,3 +10,7 @@ stats.json
 .DS_Store
 npm-debug.log
 .idea
+
+# Secure things
+.travis/id_ecdsa
+.travis/id_ecdsa.pub
