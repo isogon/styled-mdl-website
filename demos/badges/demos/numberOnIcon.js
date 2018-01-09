@@ -1,18 +1,14 @@
 import React from 'react'
-import { Badge } from 'styled-mdl'
-import AccountBox from 'react-icons/lib/md/account-box'
-import styled from 'styled-components'
-
-const AccountBoxIcon = styled(AccountBox)`
-  font-size: 32px;
-`
+import { Badge, Icon } from 'styled-mdl'
 
 const demo = () => (
   <Badge overlap text="4">
-    <AccountBoxIcon />
+    <Icon lg name="account_box" />
   </Badge>
 )
 const caption = 'Number'
-const code = '<Badge text="4"><AccountBox /></Badge>'
+const code = `<Badge overlap text="4">
+  <Icon lg name="account_box" />
+</Badge>`
 
 export default { demo, caption, code }

@@ -1,27 +1,15 @@
 import React from 'react'
-import { Badge } from 'styled-mdl'
-import AccountBox from 'react-icons/lib/md/account-box'
-import Done from 'react-icons/lib/md/done'
+import { Badge, Icon } from 'styled-mdl'
 
-import styled from 'styled-components'
+const demo = () => (
+  <Badge overlap text={<Icon sm name="done" />}>
+    <Icon lg name="account_box" />
+  </Badge>
+)
 
-const AccountBoxIcon = styled(AccountBox)`
-  font-size: 32px;
-`
-const DoneIcon = styled(Done)`
-  font-size: 16px;
-`
-
-const demo = () => {
-  const done = <DoneIcon />
-  return (
-    <Badge overlap text={done}>
-      <AccountBoxIcon />
-    </Badge>
-  )
-}
 const caption = 'Icon'
-const code = `const done = <DoneIcon />;
-return <Badge overlap text={done}>><AccountBoxIcon /></Badge>;`
+const code = `<Badge overlap text={<Icon sm name="done" />}>
+  <Icon lg name="account_box" />
+</Badge>`
 
 export default { demo, caption, code }

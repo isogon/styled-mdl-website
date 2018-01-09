@@ -1,6 +1,7 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { MaterialIcons, Roboto } from 'styled-mdl'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -17,7 +18,8 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>Styled MDL</title>
-          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet" />
+          <MaterialIcons />
+          <Roboto />
           {this.props.styleTags}
         </Head>
         <body>

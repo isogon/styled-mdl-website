@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import { MdEvent } from 'react-icons/lib/md'
 
 import {
   Card,
@@ -10,16 +8,18 @@ import {
   shadow2dp,
   Button,
   Spacer,
+  Icon,
 } from 'styled-mdl'
 
-const EventCard = styled(Card)`
-  ${shadow2dp()} width: 256px;
+const EventCard = Card.extend`
+  ${shadow2dp()} 
+  width: 256px;
   height: 256px;
   background: #3e4eb8;
   align-self: flex-start;
 `
 
-const EventInfo = styled(CardTitleText)`
+const EventInfo = CardTitleText.extend`
   margin-top: 0;
   align-self: flex-start;
   color: #fff;
@@ -28,20 +28,19 @@ const EventInfo = styled(CardTitleText)`
   line-height: 32px;
 `
 
-const EventActions = styled(CardActions)`
+const EventActions = CardActions.extend`
   border-color: rgba(255, 255, 255, 0.2);
   display: flex;
   box-sizing: border-box;
   align-items: center;
 `
 
-const EventIcon = styled(MdEvent)`
+const EventIcon = Icon.extend`
   padding-right: 10px;
-  font-size: 1.5em;
   color: #fff;
 `
 
-const WhiteButton = styled(Button)`
+const WhiteButton = Button.extend`
   color: #fff;
 `
 
@@ -59,46 +58,47 @@ const demo = () => (
     <EventActions border>
       <WhiteButton colored>Add to calenar</WhiteButton>
       <Spacer />
-      <EventIcon />
+      <EventIcon name="event" size="24" />
     </EventActions>
   </EventCard>
 )
 
 const code = `/*----- Event Card -----*/
 
-const EventCard = styled(Card)\`
-  \${shadow2dp()}
+const EventCard = Card.extend\`
+  ${shadow2dp()} 
   width: 256px;
   height: 256px;
-  background: #3E4EB8;
+  background: #3e4eb8;
   align-self: flex-start;
-\`;
+\`
 
-const EventInfo = styled(CardTitleText)\`
+const EventInfo = CardTitleText.extend\`
   margin-top: 0;
   align-self: flex-start;
   color: #fff;
   font-weight: normal;
   font-size: 24px;
   line-height: 32px;
-\`;
+\`
 
-const EventActions = styled(CardActions)\`
+const EventActions = CardActions.extend\`
   border-color: rgba(255, 255, 255, 0.2);
   display: flex;
-  box-sizing:border-box;
+  box-sizing: border-box;
   align-items: center;
-\`;
+\`
 
-const EventIcon = styled(MdEvent)\`
+const EventIcon = Icon.extend\`
   padding-right: 10px;
-  font-size: 1.5em;
   color: #fff;
-\`;
+\`
 
-const WhiteButton = styled(Button)\`
+const WhiteButton = Button.extend\`
   color: #fff;
-\`;
+\`
+
+const caption = 'Event Card'
 
 // Somewhere in a render
 <EventCard>

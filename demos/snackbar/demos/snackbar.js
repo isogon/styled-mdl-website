@@ -1,36 +1,45 @@
 import React, { Component } from 'react'
-import { without, concat } from 'lodash'
-import { SnackbarContainer, Button } from 'styled-mdl'
+import { Toast, Snackbar, Button } from 'styled-mdl'
 
 class Demo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      buttonColor: null,
-      messages: [],
+  state = {
+    messages: [],
+    showMessage: false,
+    buttonColor: null,
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (
+      nextState.messages[0] &&
+      nextState.messages[0] !== this.state.messages[0]
+    ) {
+      this.setState({ showMessage: true })
+
+      this.timeout = setTimeout(() => {
+        this.setState({ showMessage: false })
+        this.timeout = setTimeout(() => {
+          this.setState({ messages: this.state.messages.slice(1) })
+        }, 300)
+      }, 2000)
     }
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timeout)
+  }
+
   changeButtonColor = () => {
-    const buttonColor = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
-    this.setState({ buttonColor })
-    this.addMessage({
-      message: 'Button color changed',
-      actionText: 'Undo',
-      actionHandler: () => this.setState({ buttonColor: null }),
-      timeout: 2000,
-    })
-  }
-
-  addMessage = (message) => {
+    this.counter += 1
     this.setState({
-      messages: concat(this.state.messages, message),
-    })
-  }
-
-  clearMessage = (message) => {
-    this.setState({
-      messages: without(this.state.messages, message),
+      buttonColor: `#${Math.floor(Math.random() * 0xffffff).toString(16)}`,
+      messages: [
+        ...this.state.messages,
+        {
+          message: 'Button color changed',
+          actionText: 'Undo',
+          actionHandler: () => this.setState({ buttonColor: null }),
+        },
+      ],
     })
   }
 
@@ -43,10 +52,9 @@ class Demo extends Component {
           onClick={this.changeButtonColor}
           text="Show"
         />
-        <SnackbarContainer
-          messages={this.state.messages}
-          onRequestLeave={this.clearMessage}
-        />
+        <Toast isActive={this.state.showMessage}>
+          <Snackbar {...this.state.messages[0]} />
+        </Toast>
       </div>
     )
   }
@@ -54,38 +62,45 @@ class Demo extends Component {
 
 const caption = 'Snacbkar'
 const code = `class Demo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonColor: null,
-      messages: [],
-    };
+  state = {
+    messages: [],
+    showMessage: false,
+    buttonColor: null,
   }
 
-  @autobind
-  changeButtonColor() {
-    const buttonColor = \`#\${Math.floor(Math.random() * 0xFFFFFF).toString(16)}\`;
-    this.setState({ buttonColor });
-    this.addMessage({
-      message: 'Button color changed',
-      actionText: 'Undo',
-      actionHandler: () => this.setState({ buttonColor: null }),
-      timeout: 2000,
-    });
+  componentWillUpdate(nextProps, nextState) {
+    if (
+      nextState.messages[0] &&
+      nextState.messages[0] !== this.state.messages[0]
+    ) {
+      this.setState({ showMessage: true })
+
+      this.timeout = setTimeout(() => {
+        this.setState({ showMessage: false })
+        this.timeout = setTimeout(() => {
+          this.setState({ messages: this.state.messages.slice(1) })
+        }, 300)
+      }, 2000)
+    }
   }
 
-  @autobind
-  addMessage(message) {
+  componentWillUnmount() {
+    clearTimeout(this.timeout)
+  }
+
+  changeButtonColor = () => {
+    this.counter += 1
     this.setState({
-      messages: concat(this.state.messages, message),
-    });
-  }
-
-  @autobind
-  clearMessage(message) {
-    this.setState({
-      messages: without(this.state.messages, message),
-    });
+      buttonColor: \`#\${Math.floor(Math.random() * 0xffffff).toString(16)}\`,
+      messages: [
+        ...this.state.messages,
+        {
+          message: 'Button color changed',
+          actionText: 'Undo',
+          actionHandler: () => this.setState({ buttonColor: null }),
+        },
+      ],
+    })
   }
 
   render() {
@@ -97,13 +112,13 @@ const code = `class Demo extends Component {
           onClick={this.changeButtonColor}
           text="Show"
         />
-        <SnackbarContainer
-          messages={this.state.messages}
-          onRequestLeave={this.clearMessage}
-        />
+        <Toast isActive={this.state.showMessage}>
+          <Snackbar {...this.state.messages[0]} />
+        </Toast>
       </div>
-    );
+    )
   }
-}`
+}
+`
 
 export default { demo: Demo, caption, code }

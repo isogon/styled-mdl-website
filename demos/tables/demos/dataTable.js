@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import MdArrowDownward from 'react-icons/lib/md/arrow-downward'
 
 import {
   Table,
@@ -15,11 +14,11 @@ import {
   theme,
 } from 'styled-mdl'
 
-const DemoTable = styled(Table)`
+const DemoTable = Table.extend`
   ${shadow2dp()};
 `
 
-const DemoTh = styled(HeaderCell)`
+const DemoTh = HeaderCell.extend`
   ${({ sorted }) =>
     sorted &&
     css`
@@ -35,9 +34,7 @@ const demo = () => (
           <Checkbox />
         </DemoTh>
         <DemoTh nonNumeric sorted>
-          <TableIcon>
-            <MdArrowDownward />
-          </TableIcon>
+          <TableIcon name="arrow_downward" />
           Material
         </DemoTh>
         <DemoTh>Quantity</DemoTh>
@@ -74,12 +71,25 @@ const demo = () => (
 )
 
 const caption = 'Data table'
-const code = `<DemoTable>
+
+const code = `
+const DemoTable = Table.extend\`
+  \${shadow2dp()}
+\`
+
+const DemoTh = HeaderCell.extend\`
+  \${({ sorted }) => sorted && css\`
+    color: \${theme.textColorPrimary}
+  \`}
+\`
+
+// somewhere in a render
+<DemoTable>
   <TableHeader>
     <Row>
       <DemoTh><Checkbox /></DemoTh>
       <DemoTh nonNumeric sorted>
-        <TableIcon><MdArrowDownward /></TableIcon>
+        <TableIcon name="arrow_downward" />
         Material
       </DemoTh>
       <DemoTh>Quantity</DemoTh>

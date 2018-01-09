@@ -13,18 +13,19 @@ import {
   shadow2dp,
 } from 'styled-mdl'
 
-const DemoCardWide = styled(Card)`
-  ${shadow2dp()} width: 512px;
+const DemoCardWide = Card.extend`
+  ${shadow2dp()} 
+  width: 512px;
 `
 
-const DemoCardTitle = styled(CardTitle)`
+const DemoCardTitle = CardTitle.extend`
   color: #fff;
   height: 176px;
   background: url("https://getmdl.io/assets/demos/welcome_card.jpg") center /
     cover;
 `
 
-const DemoCardMenu = styled(CardMenu)`
+const DemoCardMenu = CardMenu.extend`
   color: #fff;
 `
 
@@ -52,18 +53,18 @@ const demo = () => (
 
 const code = `/*----- Wide Card -----*/
 
-const DemoCardWide = styled(Card)\`
+const DemoCardWide = Card.extend\`
   \${shadow2dp()}
   width: 512px;
 \`;
 
-const DemoCardTitle = styled(CardTitle)\`
+const DemoCardTitle = CardTitle.extend\`
   color: #fff;
   height: 176px;
   background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
 \`;
 
-const DemoCardMenu = styled(CardMenu)\`
+const DemoCardMenu = CardMenu.extend\`
   color: #fff;
 \`;
 

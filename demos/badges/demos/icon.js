@@ -1,19 +1,9 @@
 import React from 'react'
-import { Badge } from 'styled-mdl'
-import Done from 'react-icons/lib/md/done'
+import { Badge, Icon } from 'styled-mdl'
 
-import styled from 'styled-components'
+const demo = () => <Badge text={<Icon sm name="done" />}>Walk the dog</Badge>
 
-const DoneIcon = styled(Done)`
-  font-size: 16px;
-`
-
-const demo = () => {
-  const done = <DoneIcon />
-  return <Badge text={done}>Walk the dog</Badge>
-}
 const caption = 'Icon'
-const code = `const done = <DoneIcon />;
-return <Badge text={done}>Walk the dog</Badge>;`
+const code = `<Badge text={<Icon sm name="done" />}>Walk the dog</Badge>`
 
 export default { demo, caption, code }

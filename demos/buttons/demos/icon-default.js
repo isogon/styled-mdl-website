@@ -1,14 +1,15 @@
 import React from 'react'
-import { Button } from 'styled-mdl'
-import { MdAdd } from 'react-icons/lib/md'
+import { Button, Icon } from 'styled-mdl'
 
 const demo = () => (
   <Button icon>
-    <MdAdd />
+    <Icon name="add" />
   </Button>
 )
 const caption = 'Icon Button'
 const code = `/*----- Icon button -----*/
-<Button icon><MdAdd /></Button>`
+<Button icon>
+  <Icon name="add" />
+</Button>`
 
 export default { demo, caption, code }

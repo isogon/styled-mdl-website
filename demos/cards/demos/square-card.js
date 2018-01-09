@@ -11,12 +11,13 @@ import {
   shadow2dp,
 } from 'styled-mdl'
 
-const DemoCardSquare = styled(Card)`
-  ${shadow2dp()} width: 320px;
+const DemoCardSquare = Card.extend`
+  ${shadow2dp()} 
+  width: 320px;
   height: 320px;
 `
 
-const DemoCardTitle = styled(CardTitle)`
+const DemoCardTitle = CardTitle.extend`
   color: #fff;
   height: 176px;
   background: url("https://getmdl.io/assets/demos/dog.png") bottom right 15%
@@ -41,13 +42,13 @@ const demo = () => (
 
 const code = `/*----- Square Card -----*/
 
-const DemoCardSquare = styled(Card)\`
+const DemoCardSquare = Card.extend\`
   \${shadow2dp()}
   width: 320px;
   height: 320px;
 \`;
 
-const DemoCardTitle = styled(CardTitle)\`
+const DemoCardTitle = CardTitle.extend\`
   color: #fff;
   height: 176px;
   background: url('https://getmdl.io/assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;

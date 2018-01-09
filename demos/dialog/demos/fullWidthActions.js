@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { withStateHandlers } from 'recompose'
+import isNode from 'is-node'
 import {
   Dialog,
   DialogTitle,
@@ -7,113 +9,74 @@ import {
   Button,
 } from 'styled-mdl'
 
-class Demo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showDialog: false,
-      hasError: false,
-    }
-  }
+const appElement = isNode ? undefined : document.getElementById('__next')
 
-  show = () => {
-    this.setState({
-      showDialog: true,
-    })
-  }
+const mdSpecLink =
+  'https://www.google.com/design/spec/components/dialogs.html#dialogs-specs'
 
-  hide = () => {
-    this.setState({
-      showDialog: false,
-    })
+const Demo = withStateHandlers(
+  { isShowingDialog: false },
+  {
+    showDialog: () => () => ({ isShowingDialog: true }),
+    hideDialog: () => () => ({ isShowingDialog: false }),
   }
-
-  componentDidCatch() {
-    this.setState({ hasError: true })
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return 'component failed to render'
-    }
-
-    const mdSpecLink =
-      'https://www.google.com/design/spec/components/dialogs.html#dialogs-specs'
-    return (
-      <div>
-        <Button raised onClick={this.show} text="Show" />
-        <Dialog
-          isOpen={this.state.showDialog}
-          onRequestClose={this.hide}
-          contentLabel="Allow data collection"
-          size="5"
-        >
-          <DialogTitle>MDL Dialog</DialogTitle>
-          <DialogContent>
-            This is an example of the MDL Dialog being used as a modal. It is
-            using the full width action design intended for use with buttons
-            that do not fit within the specified{' '}
-            <a href={mdSpecLink}>length metrics</a>
-            .
-          </DialogContent>
-          <DialogActions fullWidth>
-            <Button onClick={this.hide}>Agree</Button>
-            <Button disabled>Inactive Action</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    )
-  }
-}
+)(({ showDialog, hideDialog, isShowingDialog }) => (
+  <div>
+    <Button raised onClick={showDialog} text="Show" />
+    <Dialog
+      isOpen={isShowingDialog}
+      onRequestClose={hideDialog}
+      contentLabel="My Dialog"
+      appElement={appElement}
+      size="5"
+    >
+      <DialogTitle>MDL Dialog</DialogTitle>
+      <DialogContent>
+        This is an example of the MDL Dialog being used as a modal. It is using
+        the full width action design intended for use with buttons that do not
+        fit within the specified <a href={mdSpecLink}>length metrics</a>
+        .
+      </DialogContent>
+      <DialogActions fullWidth>
+        <Button onClick={hideDialog}>Agree</Button>
+        <Button disabled>Inactive Action</Button>
+      </DialogActions>
+    </Dialog>
+  </div>
+))
 
 const caption = 'Basic Dialog'
-const code = `class Demo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showDialog: false,
-    };
-  }
+const code = `// using recompose
 
-  @autobind show() {
-    this.setState({
-      showDialog: true,
-    });
+const Demo = withStateHandlers(
+  { isShowingDialog: false },
+  {
+    showDialog: () => () => ({ isShowingDialog: true }),
+    hideDialog: () => () => ({ isShowingDialog: false }),
   }
-
-  @autobind hide() {
-    this.setState({
-      showDialog: false,
-    });
-  }
-
-  render() {
-    const mdSpecLink =
-      'https://www.google.com/design/spec/components/dialogs.html#dialogs-specs';
-    return (
-      <div>
-        <Button raised onClick={this.show} text="Show" />
-        <Dialog
-          isOpen={this.state.showDialog}
-          onRequestClose={this.hide}
-          contentLabel="Allow data collection"
-          size="4"
-        >
-          <DialogTitle>MDL Dialog</DialogTitle>
-          <DialogContent>
-            This is an example of the MDL Dialog being used as a modal. It is using the full width action design intended for use with buttons that do not fit within the specified
-            {' '}
-            <a href={mdSpecLink}>length metrics</a>
-            .
-          </DialogContent>
-          <DialogActions fullWidth>
-            <Button onClick={this.hide}>Agree</Button>
-            <Button disabled>Inactive Action</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    );
-  }
-}`
+)(({ showDialog, hideDialog, isShowingDialog }) => (
+  <div>
+    <Button raised onClick={showDialog} text="Show" />
+    <Dialog
+      isOpen={isShowingDialog}
+      onRequestClose={hideDialog}
+      contentLabel="My Dialog"
+      appElement={document.getElementById('__next')}
+      size="5"
+    >
+      <DialogTitle>MDL Dialog</DialogTitle>
+      <DialogContent>
+        This is an example of the MDL Dialog being used as a modal. It is using
+        the full width action design intended for use with buttons that do not
+        fit within the specified <a href={mdSpecLink}>length metrics</a>
+        .
+      </DialogContent>
+      <DialogActions fullWidth>
+        <Button onClick={this.hide}>Agree</Button>
+        <Button disabled>Inactive Action</Button>
+      </DialogActions>
+    </Dialog>
+  </div>
+))`
 
 export default { demo: Demo, caption, code }
