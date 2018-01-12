@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import DemoPage from '../../components/DemoPage'
 
@@ -13,14 +13,24 @@ const title = 'Tooltips'
 const subtitle = 'Useful information on hover.'
 
 const demos = [
-  { demos: [above, below] },
-  { demos: [left, right] },
-  { demos: [multiLine, large] },
+  { title: 'Basic Tooltips', demos: [above, below, left, right] },
+  { title: 'Additional Tooltips', demos: [multiLine, large] },
 ]
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class Lists extends Component {
-  render() {
-    return <DemoPage title={title} subtitle={subtitle} demoGroups={demos} />
-  }
+const description = 'TODO'
+const usage = {
+  '<Tooltip>': {
+    sourceLink:
+      'https://github.com/isogon/styled-mdl/blob/master/src/tooltips/Tooltip.js',
+    props: [],
+  },
 }
+export default () => (
+  <DemoPage
+    title={title}
+    subtitle={subtitle}
+    demoGroups={demos}
+    usage={usage}
+    description={description}
+  />
+)

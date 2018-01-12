@@ -7,8 +7,8 @@ import {
   LiSecondary,
   LiAvatar,
   Button,
+  Icon,
 } from 'styled-mdl'
-import Star from 'react-icons/lib/md/star'
 
 const demo = () => (
   <List>
@@ -20,7 +20,7 @@ const demo = () => (
       <LiSecondary>
         <LiAction>
           <Button icon accent>
-            <Star />
+            <Icon name="star" />
           </Button>
         </LiAction>
       </LiSecondary>
@@ -33,7 +33,7 @@ const demo = () => (
       <LiSecondary>
         <LiAction>
           <Button icon accent>
-            <Star />
+            <Icon name="star" />
           </Button>
         </LiAction>
       </LiSecondary>
@@ -46,7 +46,7 @@ const demo = () => (
       <LiSecondary>
         <LiAction>
           <Button icon accent>
-            <Star />
+            <Icon name="star" />
           </Button>
         </LiAction>
       </LiSecondary>
@@ -62,7 +62,7 @@ const code = `<List>
     </LiPrimary>
     <LiSecondary>
       <LiAction>
-        <Button icon accent><Star /></Button>
+        <Button icon accent><Icon name="star" /></Button>
       </LiAction>
     </LiSecondary>
   </ListItem>
@@ -73,7 +73,7 @@ const code = `<List>
     </LiPrimary>
     <LiSecondary>
       <LiAction>
-        <Button icon accent><Star /></Button>
+        <Button icon accent><Icon name="star" /></Button>
       </LiAction>
     </LiSecondary>
   </ListItem>
@@ -84,7 +84,7 @@ const code = `<List>
     </LiPrimary>
     <LiSecondary>
       <LiAction>
-        <Button icon accent><Star /></Button>
+        <Button icon accent><Icon name="star" /></Button>
       </LiAction>
     </LiSecondary>
   </ListItem>

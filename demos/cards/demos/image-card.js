@@ -33,8 +33,7 @@ const demo = () => (
   </ImageCard>
 )
 
-const code = `/*----- Image Card -----*/
-
+const code = `
 const ImageCard = Card.extend\`
   \${shadow2dp()}
   width: 256px;

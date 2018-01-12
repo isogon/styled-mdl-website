@@ -7,10 +7,11 @@ const demo = () => (
   </Button>
 )
 
-const caption = 'Accent Colored Icon'
-const code = `/*----- Accent colored icon button -----*/
+const caption = 'Accent colored icon button'
+const code = `
   <Button icon accent>
     <Icon name="add" />
-  </Button>`
+  </Button>
+`
 
 export default { demo, caption, code }

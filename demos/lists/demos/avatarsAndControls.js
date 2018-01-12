@@ -9,15 +9,15 @@ import {
   Checkbox,
   Radio,
   Switch,
+  Icon,
 } from 'styled-mdl'
-import Person from 'react-icons/lib/md/person'
 
 const demo = () => (
   <List>
     <ListItem>
       <LiPrimary>
         <LiAvatar>
-          <Person />
+          <Icon name="person" />
         </LiAvatar>
         Bryan Cranston
       </LiPrimary>
@@ -30,7 +30,7 @@ const demo = () => (
     <ListItem>
       <LiPrimary>
         <LiAvatar>
-          <Person />
+          <Icon name="person" />
         </LiAvatar>
         Aaron Paul
       </LiPrimary>
@@ -43,7 +43,7 @@ const demo = () => (
     <ListItem>
       <LiPrimary>
         <LiAvatar>
-          <Person />
+          <Icon name="person" />
         </LiAvatar>
         Bob Odenkirk
       </LiPrimary>
@@ -59,7 +59,7 @@ const caption = 'Avatars and controls'
 const code = `<List>
   <ListItem>
     <LiPrimary>
-      <LiAvatar><Person /></LiAvatar>
+      <LiAvatar><Icon name="person" /></LiAvatar>
       Bryan Cranston
     </LiPrimary>
     <LiSecondary>
@@ -70,7 +70,7 @@ const code = `<List>
   </ListItem>
   <ListItem>
     <LiPrimary>
-      <LiAvatar><Person /></LiAvatar>
+      <LiAvatar><Icon name="person" /></LiAvatar>
       Aaron Paul
     </LiPrimary>
     <LiSecondary>
@@ -81,7 +81,7 @@ const code = `<List>
   </ListItem>
   <ListItem>
     <LiPrimary>
-      <LiAvatar><Person /></LiAvatar>
+      <LiAvatar><Icon name="person" /></LiAvatar>
       Bob Odenkirk
     </LiPrimary>
     <LiSecondary>

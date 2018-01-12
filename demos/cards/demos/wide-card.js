@@ -51,8 +51,7 @@ const demo = () => (
   </DemoCardWide>
 )
 
-const code = `/*----- Wide Card -----*/
-
+const code = `
 const DemoCardWide = Card.extend\`
   \${shadow2dp()}
   width: 512px;

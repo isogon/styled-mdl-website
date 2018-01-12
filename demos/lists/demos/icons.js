@@ -1,24 +1,23 @@
 import React from 'react'
-import { List, ListItem, LiIcon } from 'styled-mdl'
-import Person from 'react-icons/lib/md/person'
+import { List, ListItem, LiIcon, Icon } from 'styled-mdl'
 
 const demo = () => (
   <List>
     <ListItem>
       <LiIcon>
-        <Person />
+        <Icon name="person" />
       </LiIcon>
       Bryan Cranston
     </ListItem>
     <ListItem>
       <LiIcon>
-        <Person />
+        <Icon name="person" />
       </LiIcon>
       Aaron Paul
     </ListItem>
     <ListItem>
       <LiIcon>
-        <Person />
+        <Icon name="person" />
       </LiIcon>
       Bob Odenkirk
     </ListItem>
@@ -28,15 +27,15 @@ const demo = () => (
 const caption = 'Icons'
 const code = `<List>
   <ListItem>
-    <LiIcon><Person /></LiIcon>
+    <LiIcon><Icon name="person" /></LiIcon>
     Bryan Cranston
   </ListItem>
   <ListItem>
-    <LiIcon><Person /></LiIcon>
+    <LiIcon><Icon name="person" /></LiIcon>
     Aaron Paul
   </ListItem>
   <ListItem>
-    <LiIcon><Person /></LiIcon>
+    <LiIcon><Icon name="person" /></LiIcon>
     Bob Odenkirk
   </ListItem>
 </List>`

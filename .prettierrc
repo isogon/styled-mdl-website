@@ -1,4 +1,3 @@
----
 semi: false
-singleQuote: false
+singleQuote: true
 trailingCommas: all

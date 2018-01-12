@@ -17,9 +17,32 @@ const demos = [
   { label: 'Switches', demos: [switchOn, switchOff] },
 ]
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class Snackbar extends Component {
-  render() {
-    return <DemoPage title={title} subtitle={subtitle} demoGroups={demos} />
-  }
+const description = 'TODO'
+const usage = {
+  '<Checkbox>': {
+    sourceLink:
+      'https://github.com/isogon/styled-mdl/blob/master/src/checkbox/Checkbox.js',
+    props: [],
+  },
+  '<Radio>': {
+    sourceLink:
+      'https://github.com/isogon/styled-mdl/blob/master/src/radio/Radio.js',
+    props: [],
+  },
+  '<Switch>': {
+    sourceLink:
+      'https://github.com/isogon/styled-mdl/blob/master/src/switch/Switch.js',
+    props: [],
+  },
 }
+
+// eslint-disable-next-line react/prefer-stateless-function
+export default () => (
+  <DemoPage
+    title={title}
+    subtitle={subtitle}
+    demoGroups={demos}
+    usage={usage}
+    description={description}
+  />
+)

@@ -6,10 +6,11 @@ const demo = () => (
     <Icon name="add" />
   </Button>
 )
-const caption = 'Colored Icon'
-const code = `/*----- Primary colored icon button -----*/
-<Button icon primary>
-  <Icon name="add">
-</Button>`
+const caption = 'Primary Colored Icon Button'
+const code = `
+  <Button icon primary>
+    <Icon name="add">
+  </Button>
+`
 
 export default { demo, caption, code }

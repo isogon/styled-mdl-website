@@ -6,4 +6,5 @@ export default styled.div`
   flex-direction: column;
   min-height: 100%;
   padding-left: 200px;
+  background: #f5f5f5;
 `

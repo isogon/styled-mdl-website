@@ -46,7 +46,10 @@ const Demo = withStateHandlers(
 ))
 
 const caption = 'Basic Dialog'
-const code = `// using recompose
+const code = `
+
+// using recompose withStateHandlers
+// https://github.com/acdlite/recompose/blob/master/docs/API.md#withstatehandlers
 
 const Demo = withStateHandlers(
   { isShowingDialog: false },

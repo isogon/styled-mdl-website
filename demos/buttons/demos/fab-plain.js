@@ -6,8 +6,11 @@ const demo = () => (
     <Icon name="add" />
   </Button>
 )
-const caption = 'Fab'
-const code = `/*----- Fab button -----*/
-<Button fab><Icon name="add" /></Button>`
+const caption = 'Default Fab'
+const code = `
+  <Button fab>
+    <Icon name="add" />
+  </Button>
+`
 
 export default { demo, caption, code }

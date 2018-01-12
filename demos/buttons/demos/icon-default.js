@@ -7,9 +7,10 @@ const demo = () => (
   </Button>
 )
 const caption = 'Icon Button'
-const code = `/*----- Icon button -----*/
-<Button icon>
-  <Icon name="add" />
-</Button>`
+const code = `
+  <Button icon>
+    <Icon name="add" />
+  </Button>
+`
 
 export default { demo, caption, code }

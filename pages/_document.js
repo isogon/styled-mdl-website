@@ -20,6 +20,15 @@ export default class MyDocument extends Document {
           <title>Styled MDL</title>
           <MaterialIcons />
           <Roboto />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-coy.min.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.css"
+          />
+          <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet" />
           {this.props.styleTags}
         </Head>
         <body>

@@ -2,13 +2,13 @@ import React from 'react'
 import { Button, Icon } from 'styled-mdl'
 
 const demo = () => (
-  <Button fab mini>
+  <Button icon disabled>
     <Icon name="add" />
   </Button>
 )
-const caption = 'Mini Fab'
+const caption = 'Disabled Icon Button'
 const code = `
-  <Button fab mini>
+  <Button icon disabled>
     <Icon name="add" />
   </Button>
 `

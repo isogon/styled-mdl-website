@@ -4,22 +4,20 @@ import styled from 'styled-components'
 import Content from './Content'
 
 const Wrap = styled.div`
-  margin-bottom: 60px;
-  margin-left: 32px;
+  margin-bottom: 40px;
 `
 
 const Title = styled.h3`
-  font-size: 16px;
-  font-weight: 500;
-  margin: 80px 0 24px;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.54);
-  line-height: 40px;
+  font-size: 30px;
+  font-weight: 800;
+  margin: 80px 0 0px;
+  color: rgba(0, 0, 0, 0.84);
+  letter-spacing: 0.46px;
+  line-height: 22px;
 `
 
 const Text = styled(Content)`
   margin-top: 16px;
-  margin-bottom: 16px;
   color: rgba(0, 0, 0, 0.54);
 `
 

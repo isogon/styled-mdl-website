@@ -3,11 +3,10 @@ import { Button } from 'styled-mdl'
 
 const demo = () => (
   <Button raised colored>
-    Action
+    Raised Primary
   </Button>
 )
-const caption = 'Colored Button'
-const code = `/*----- Colored raised button -----*/
-<Button raised colored>Action</Button>`
+const caption = 'Raised Primary Colored Button'
+const code = '<Button raised primary>Raised Primary</Button>'
 
 export default { demo, caption, code }

@@ -1,9 +1,8 @@
 import React from 'react'
 import { Button } from 'styled-mdl'
 
-const demo = () => <Button primary>Action</Button>
-const caption = 'Primary Colored Flat'
-const code = `/*----- Primary colored flat button -----*/
-<Button primary>Action</Button>`
+const demo = () => <Button primary>Primary</Button>
+const caption = 'Primary Colored Button'
+const code = '<Button primary>Primary</Button>'
 
 export default { demo, caption, code }

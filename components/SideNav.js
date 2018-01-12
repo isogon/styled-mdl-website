@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { withRouter } from 'next/router'
 
-import { shadow4dp, util } from 'styled-mdl'
+import { shadow4dp, util, Icon } from 'styled-mdl'
 
 const { getters: g } = util
 
@@ -52,8 +52,43 @@ const NavLink = withRouter(({ children, router, href }) => {
   )
 })
 
+const Title = styled.h1`
+  margin: 0;
+  font-weight: 800;
+  font-size: 14px;
+  position: relative;
+  margin: 0px 0 5px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: ${g.textLinkColor};
+`
+
+const GithubLink = styled.a`
+  font-weight: 500;
+  font-size: 13px;
+  text-decoration: none;
+  color: #888;
+  opacity: 0.65;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 23px;
+  margin-bottom: 20px;
+  &:hover {
+    opacity: 1;
+  }
+`
+
+const LinkIcon = Icon.extend`
+  font-size: 24px;
+  margin-right: 5px;
+`
+
 const SideNav = ({ links }) => (
   <Nav>
+    <Title>STYLED MDL</Title>
+    <GithubLink href="https://github.com/isogon/styled-mdl">
+      <LinkIcon name="link" /> Github
+    </GithubLink>
     {links.map((link, i) => (
       <NavLink key={i} href={link.to}>
         {link.label}

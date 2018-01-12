@@ -1,19 +1,18 @@
 import React from 'react'
-import MdAdd from 'react-icons/lib/md/add'
 
-import { Tooltip, Button } from 'styled-mdl'
+import { Tooltip, Button, Icon } from 'styled-mdl'
 
 const demo = () => (
   <Tooltip message="Follow">
     <Button icon>
-      <MdAdd />
+      <Icon name="add" />
     </Button>
   </Tooltip>
 )
 
-const caption = 'Above'
+const caption = 'Tooltip Above'
 const code = `<Tooltip message="Follow">
-  <Button icon><MdAdd /></Button>
+  <Button icon><Icon name="add" /></Button>
 </Tooltip>`
 
 export default { demo, caption, code }

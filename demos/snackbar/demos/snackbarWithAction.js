@@ -5,6 +5,7 @@ class Demo extends Component {
   state = {
     messages: [],
     showMessage: false,
+    buttonColor: null,
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -27,19 +28,30 @@ class Demo extends Component {
     clearTimeout(this.timeout)
   }
 
-  counter = 0
-
-  increment = () => {
+  changeButtonColor = () => {
     this.counter += 1
     this.setState({
-      messages: [...this.state.messages, { message: `Example message ${this.counter}` }],
+      buttonColor: `#${Math.floor(Math.random() * 0xffffff).toString(16)}`,
+      messages: [
+        ...this.state.messages,
+        {
+          message: 'Button color changed',
+          actionText: 'Undo',
+          actionHandler: () => this.setState({ buttonColor: null }),
+        },
+      ],
     })
   }
 
   render() {
     return (
       <div>
-        <Button raised onClick={this.increment} text="Show" />
+        <Button
+          raised
+          style={{ background: this.state.buttonColor }}
+          onClick={this.changeButtonColor}
+          text="Show"
+        />
         <Toast isActive={this.state.showMessage}>
           <Snackbar {...this.state.messages[0]} />
         </Toast>
@@ -48,11 +60,12 @@ class Demo extends Component {
   }
 }
 
-const caption = 'Toast'
+const caption = 'Snacbkar With Action'
 const code = `class Demo extends Component {
   state = {
     messages: [],
     showMessage: false,
+    buttonColor: null,
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -75,24 +88,37 @@ const code = `class Demo extends Component {
     clearTimeout(this.timeout)
   }
 
-  counter = 0
-
-  increment = () => {
+  changeButtonColor = () => {
     this.counter += 1
     this.setState({
-      messages: [...this.state.messages, { message: \`Example message \${this.counter}\` }],
+      buttonColor: \`#\${Math.floor(Math.random() * 0xffffff).toString(16)}\`,
+      messages: [
+        ...this.state.messages,
+        {
+          message: 'Button color changed',
+          actionText: 'Undo',
+          actionHandler: () => this.setState({ buttonColor: null }),
+        },
+      ],
     })
   }
 
   render() {
     return (
       <div>
-        <Button raised onClick={this.increment} text="Show" />
+        <Button
+          raised
+          style={{ background: this.state.buttonColor }}
+          onClick={this.changeButtonColor}
+          text="Show"
+        />
         <Toast isActive={this.state.showMessage}>
           <Snackbar {...this.state.messages[0]} />
         </Toast>
       </div>
     )
   }
-}`
+}
+`
+
 export default { demo: Demo, caption, code }

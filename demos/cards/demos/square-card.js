@@ -40,8 +40,7 @@ const demo = () => (
   </DemoCardSquare>
 )
 
-const code = `/*----- Square Card -----*/
-
+const code = `
 const DemoCardSquare = Card.extend\`
   \${shadow2dp()}
   width: 320px;

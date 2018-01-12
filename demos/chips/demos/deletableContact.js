@@ -10,7 +10,7 @@ const demo = () => (
   </Chip>
 )
 
-const caption = 'Contact Chip'
+const caption = 'Deletable Contact Chip'
 const code = `<Chip deletable contact={{ src: avatarImg }}>
   Deletable Contact Chip
 </Chip>`

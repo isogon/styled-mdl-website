@@ -6,7 +6,6 @@ import { PropTypes } from 'prop-types'
 import { sideNavLinks } from './_navigation'
 import ContentWrapper from './ContentWrapper'
 import SideNav from './SideNav'
-import TopBar from './TopBar'
 
 const Main = styled.div`
   flex: 1;
@@ -29,7 +28,6 @@ const Layout = (props) => (
       <Main>
         <SideNav links={sideNavLinks} />
         <ContentWrapper>
-          <TopBar />
           {props.children}
         </ContentWrapper>
       </Main>

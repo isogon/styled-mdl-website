@@ -1,24 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-import DemoPage from '../../components/DemoPage';
+import DemoPage from '../../components/DemoPage'
 
-import text from './demos/text';
-import error from './demos/error';
-import multiLine from './demos/multiLine';
-import helper from './demos/helper';
+import text from './demos/text'
+import error from './demos/error'
+import multiLine from './demos/multiLine'
+import helper from './demos/helper'
 // import select from './demos/select';
 
-const title = 'Text Fields';
-const subtitle = 'Textual input components';
+const title = 'Text Fields'
+const subtitle = 'Textual input components'
 const demos = [
-  { demos: [text, error] },
-  { demos: [helper, multiLine] },
-  // { demos: [select] },
-];
+  { title: 'Basic Textfields', demos: [text, multiLine] },
+  { title: 'Textfields with Errors and Helper Text', demos: [error, helper] },
+]
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class Buttons extends Component {
-  render() {
-    return <DemoPage title={title} subtitle={subtitle} demoGroups={demos} />;
-  }
+const description = 'TODO'
+const usage = {
+  '<Textfield>': {
+    sourceLink:
+      'https://github.com/isogon/styled-mdl/blob/master/src/textfield/Textfield.js',
+    props: [],
+  },
 }
+
+export default () => (
+  <DemoPage
+    title={title}
+    subtitle={subtitle}
+    demoGroups={demos}
+    description={description}
+    usage={usage}
+  />
+)

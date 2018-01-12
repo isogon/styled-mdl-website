@@ -7,9 +7,11 @@ const demo = () => (
   </Badge>
 )
 
-const caption = 'Icon'
-const code = `<Badge overlap text={<Icon sm name="done" />}>
-  <Icon lg name="account_box" />
-</Badge>`
+const caption = 'Icon over icon'
+const code = `
+  <Badge overlap text={<Icon sm name="done" />}>
+    <Icon lg name="account_box" />
+  </Badge>
+`
 
 export default { demo, caption, code }

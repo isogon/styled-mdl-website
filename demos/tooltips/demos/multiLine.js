@@ -1,7 +1,6 @@
 import React from 'react'
-import MdShare from 'react-icons/lib/md/share'
 
-import { Tooltip, Button } from 'styled-mdl'
+import { Tooltip, Button, Icon } from 'styled-mdl'
 
 const demo = () => (
   <Tooltip
@@ -12,14 +11,14 @@ const demo = () => (
     }
   >
     <Button icon>
-      <MdShare />
+      <Icon name="share" />
     </Button>
   </Tooltip>
 )
 
-const caption = 'Multiple lines'
+const caption = 'Multiple Line Tooltip'
 const code = `<Tooltip message="Follow">
-  <Button icon><MdAdd /></Button>
+  <Button icon><Icon name="share" /></Button>
 </Tooltip>`
 
 export default { demo, caption, code }

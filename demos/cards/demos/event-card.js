@@ -12,8 +12,7 @@ import {
 } from 'styled-mdl'
 
 const EventCard = Card.extend`
-  ${shadow2dp()} 
-  width: 256px;
+  ${shadow2dp()} width: 256px;
   height: 256px;
   background: #3e4eb8;
   align-self: flex-start;
@@ -63,8 +62,7 @@ const demo = () => (
   </EventCard>
 )
 
-const code = `/*----- Event Card -----*/
-
+const code = `
 const EventCard = Card.extend\`
   ${shadow2dp()} 
   width: 256px;
