@@ -5,6 +5,8 @@ export default styled.div`
   flex-grow: 1;
   flex-direction: column;
   min-height: 100%;
-  padding-left: 200px;
-  background: #f5f5f5;
+  padding-left: 150px;
+  @media (min-width: 1032px) {
+    padding-left: 200px;
+  }
 `

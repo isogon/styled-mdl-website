@@ -1,15 +1,16 @@
-import React from 'react'
-import { initGlobals, createTheme, colors } from 'styled-mdl'
-import styled, { ThemeProvider } from 'styled-components'
 import { PropTypes } from 'prop-types'
+import { initGlobals, createTheme, colors } from 'styled-mdl'
+import React from 'react'
+import styled, { ThemeProvider } from 'styled-components'
 
 import { sideNavLinks } from './_navigation'
+import AppHeader from './AppHeader'
 import ContentWrapper from './ContentWrapper'
 import SideNav from './SideNav'
 
 const Main = styled.div`
   flex: 1;
-  height: 100vh;
+  height: calc(100vh - 64px);
   overflow: auto;
   position: relative;
 `
@@ -25,11 +26,10 @@ const theme = createTheme({
 const Layout = (props) => (
   <ThemeProvider theme={theme}>
     <div>
+      <AppHeader />
       <Main>
         <SideNav links={sideNavLinks} />
-        <ContentWrapper>
-          {props.children}
-        </ContentWrapper>
+        <ContentWrapper>{props.children}</ContentWrapper>
       </Main>
     </div>
   </ThemeProvider>
