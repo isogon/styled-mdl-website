@@ -124,7 +124,7 @@ const DemoPage = ({
             <Usage usage={usage} />
           ) : (
             map(usage, (component, name) => (
-              <div>
+              <div key={name}>
                 <UsageTitle>
                   <ComponentName>{name}</ComponentName>
                   <SourceLink href={component.sourceLink} target="_blank">
@@ -155,7 +155,7 @@ DemoPage.propTypes = {
   ),
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  usage: Usage.propTypes.usage,
+  usage: PropTypes.object,
   description: PropTypes.node,
 }
 

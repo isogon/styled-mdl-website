@@ -1,3 +1,4 @@
 semi: false
 singleQuote: true
 trailingCommas: all
+arrow-parens: always

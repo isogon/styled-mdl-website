@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { withRouter } from 'next/router'
+import Link from 'next/link'
 
 import { shadow4dp, util, Icon } from 'styled-mdl'
 
@@ -18,39 +19,30 @@ const Nav = styled.aside`
   ${shadow4dp} overflow: auto;
 `
 
-const LinkBase = styled.a`
-  display: block;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
-  color: ${g.fg};
-  text-decoration: none;
-  cursor: pointer;
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      color: ${g.textLinkColor};
-      font-weight: 600;
-    `};
+const LinkWrap = styled.div`
+  a {
+    display: block;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    color: ${g.fg};
+    text-decoration: none;
+    cursor: pointer;
+    ${({ isActive }) =>
+      isActive &&
+      css`
+        color: ${g.textLinkColor};
+        font-weight: 600;
+      `};
+  }
 `
 
-const NavLink = withRouter(({ children, router, href }) => {
-  const handleClick = (e) => {
-    e.preventDefault()
-    router.push(href)
-  }
-
-  return (
-    <LinkBase
-      href={href}
-      isActive={router.pathname === href}
-      onClick={handleClick}
-    >
-      {children}
-    </LinkBase>
-  )
-})
+const NavLink = withRouter(({ children, router, href, as }) => (
+  <LinkWrap isActive={router.asPath === as}>
+    <Link as={as} href={href} prefetch><a>{children}</a></Link>
+  </LinkWrap>
+))
 
 const Title = styled.h1`
   margin: 0;
@@ -90,7 +82,7 @@ const SideNav = ({ links }) => (
       <LinkIcon name="link" /> Github
     </GithubLink>
     {links.map((link, i) => (
-      <NavLink key={i} href={link.to}>
+      <NavLink key={i} href={link.to} as={link.as}>
         {link.label}
       </NavLink>
     ))}

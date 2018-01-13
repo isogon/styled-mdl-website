@@ -8,7 +8,16 @@ const port = process.env.PORT || 3000
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const redirects = [{ from: '/', to: '/demos/badges' }]
+const redirects = [
+  {
+    from: '/',
+    to: '/demos/badges',
+  },
+  {
+    from: '/demos',
+    to: '/demos/badges',
+  },
+]
 
 app.prepare().then(() => {
   const server = express()
@@ -17,6 +26,10 @@ app.prepare().then(() => {
     server[method](from, (req, res) => {
       res.redirect(type, to)
     })
+  })
+
+  server.get('/demos/:demo', (req, res) => {
+    app.render(req, res, '/demos', { demo: req.params.demo })
   })
 
   server.get('*', (req, res) => handle(req, res))

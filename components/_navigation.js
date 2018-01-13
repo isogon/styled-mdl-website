@@ -1,58 +1,72 @@
 export const sideNavLinks = [
   {
-    to: '/demos/badges',
+    to: '/demos?demo=badges',
+    as: '/demos/badges',
     label: 'Badges',
   },
   {
-    to: '/demos/buttons',
+    to: '/demos?demo=buttons',
+    as: '/demos/buttons',
     label: 'Buttons',
   },
   {
-    to: '/demos/cards',
+    to: '/demos?demo=cards',
+    as: '/demos/cards',
     label: 'Cards',
   },
   {
-    to: '/demos/chips',
+    to: '/demos?demo=chips',
+    as: '/demos/chips',
     label: 'Chips',
   },
   {
-    to: '/demos/dialogs',
+    to: '/demos?demo=dialogs',
+    as: '/demos/dialogs',
     label: 'Dialogs',
   },
   {
-    to: '/demos/lists',
+    to: '/demos?demo=lists',
+    as: '/demos/lists',
     label: 'Lists',
   },
   {
-    to: '/demos/loading',
+    to: '/demos?demo=loading',
+    as: '/demos/loading',
     label: 'Loading',
   },
   {
-    to: '/demos/menus',
+    to: '/demos?demo=menus',
+    as: '/demos/menus',
     label: 'Menus',
   },
   {
-    to: '/demos/sliders',
+    to: '/demos?demo=sliders',
+    as: '/demos/sliders',
     label: 'Sliders',
   },
   {
-    to: '/demos/snackbar',
+    to: '/demos?demo=snackbar',
+    as: '/demos/snackbar',
     label: 'Snackbar',
   },
   {
-    to: '/demos/tables',
+    to: '/demos?demo=tables',
+    as: '/demos/tables',
     label: 'Tables',
   },
   {
-    to: '/demos/textfields',
+    to: '/demos?demo=textfields',
+    as: '/demos/textfields',
     label: 'Text Fields',
   },
   {
-    to: '/demos/toggles',
+    to: '/demos?demo=toggles',
+    as: '/demos/toggles',
     label: 'Toggles',
   },
   {
-    to: '/demos/tooltips',
+    to: '/demos?demo=tooltips',
+    as: '/demos/tooltips',
     label: 'Tooltips',
   },
 ]
