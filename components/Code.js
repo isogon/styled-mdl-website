@@ -7,10 +7,15 @@ import styled from 'styled-components'
 
 const CodeWrap = styled.div`
   min-width: 500px;
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #fafafa;
-  background: #fafafa;
-  pre[class*="language-"] {
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  background: #f2f2f2;
+  & .line-numbers {
+    background: #fafafa;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #fafafa;
+  }
+  pre[class*='language-'] {
     margin: 0 0 -1px 0;
     box-shadow: none;
     &:after,
@@ -23,19 +28,24 @@ const CodeWrap = styled.div`
       box-shadow: none;
       border-left: none;
       overflow: visible;
-      font-family: "Ubuntu Mono", Consolas, Monaco, "Andale Mono", monospace;
+      font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', monospace;
       &:first-child {
         margin-top: 15px;
       }
       &:last-child {
         margin-bottom: 15px;
       }
+      background-color: #f2f2f2;
+      padding: 0 20px;
+    }
+    &.line-numbers > code {
       background-color: #fafafa;
+      background-size: 40px 40px;
       background-image: linear-gradient(
         transparent 50%,
         rgba(69, 142, 209, 0.06) 50%
       );
-      background-size: 40px 40px;
+      padding: 0 55px;
     }
   }
   .line-numbers .line-numbers-rows {
@@ -57,12 +67,9 @@ export default class Code extends React.Component {
 
   render() {
     return (
-      <CodeWrap>
+      <CodeWrap className={this.props.className}>
         <pre>
-          <code
-            className="line-numbers language-jsx"
-            ref={(e) => (this.code = e)}
-          >
+          <code className={this.props.className} ref={(e) => (this.code = e)}>
             {this.props.children}
           </code>
         </pre>
@@ -73,4 +80,9 @@ export default class Code extends React.Component {
 
 Code.propTypes = {
   children: PropTypes.string,
+  className: PropTypes.string,
+}
+
+Code.defaultProps = {
+  className: 'line-numbers language-jsx',
 }

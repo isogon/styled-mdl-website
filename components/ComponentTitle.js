@@ -10,7 +10,7 @@ const Wrap = styled.div`
 const Title = styled.h3`
   font-size: 30px;
   font-weight: 800;
-  margin: 80px 0 0px;
+  margin: 0;
   color: rgba(0, 0, 0, 0.84);
   letter-spacing: 0.46px;
   line-height: 22px;
@@ -24,7 +24,7 @@ const Text = styled(Content)`
 const ComponentTitle = ({ title, subtitle }) => (
   <Wrap>
     <Title>{title}</Title>
-    <Text>{subtitle}</Text>
+    {subtitle && <Text>{subtitle}</Text>}
   </Wrap>
 )
 

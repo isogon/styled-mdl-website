@@ -3,10 +3,7 @@ import { initGlobals, createTheme, colors } from 'styled-mdl'
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { sideNavLinks } from './_navigation'
 import AppHeader from './AppHeader'
-import ContentWrapper from './ContentWrapper'
-import SideNav from './SideNav'
 
 const Main = styled.div`
   flex: 1;
@@ -15,7 +12,7 @@ const Main = styled.div`
   position: relative;
 `
 
-initGlobals({ fontObserver: 'Roboto' })
+initGlobals()
 
 const theme = createTheme({
   colorPrimary: colors.indigo[500],
@@ -27,10 +24,7 @@ const Layout = (props) => (
   <ThemeProvider theme={theme}>
     <div>
       <AppHeader />
-      <Main>
-        <SideNav links={sideNavLinks} />
-        <ContentWrapper>{props.children}</ContentWrapper>
-      </Main>
+      <Main id="scrollarea">{props.children}</Main>
     </div>
   </ThemeProvider>
 )
