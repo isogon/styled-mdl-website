@@ -1,8 +1,8 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 
-import NavLink from './NavLink'
+import PageLink from './PageLink'
 
 const Nav = styled.aside`
   width: 150px;
@@ -21,9 +21,9 @@ const Nav = styled.aside`
 const SideNav = ({ links }) => (
   <Nav>
     {links.map((link, i) => (
-      <NavLink key={i} href={link.to} as={link.as}>
+      <PageLink key={i} href={`#${link.id}`}>
         {link.label}
-      </NavLink>
+      </PageLink>
     ))}
   </Nav>
 )

@@ -1,72 +1,87 @@
+export const topNavLinks = [
+  {
+    to: '/getting-started',
+    label: 'Getting Started',
+  },
+  {
+    to: '/components',
+    label: 'Components',
+  },
+  {
+    to: '/theming',
+    label: 'Theming',
+  },
+]
+
 export const sideNavLinks = [
   {
-    to: '/demos?demo=badges',
-    as: '/demos/badges',
+    to: '/components/component?component=badges',
+    as: '/components/badges',
     label: 'Badges',
   },
   {
-    to: '/demos?demo=buttons',
-    as: '/demos/buttons',
+    to: '/components/component?component=buttons',
+    as: '/components/buttons',
     label: 'Buttons',
   },
   {
-    to: '/demos?demo=cards',
-    as: '/demos/cards',
+    to: '/components/component?component=cards',
+    as: '/components/cards',
     label: 'Cards',
   },
   {
-    to: '/demos?demo=chips',
-    as: '/demos/chips',
+    to: '/components/component?component=chips',
+    as: '/components/chips',
     label: 'Chips',
   },
   {
-    to: '/demos?demo=dialogs',
-    as: '/demos/dialogs',
+    to: '/components/component?component=dialogs',
+    as: '/components/dialogs',
     label: 'Dialogs',
   },
   {
-    to: '/demos?demo=lists',
-    as: '/demos/lists',
+    to: '/components/component?component=lists',
+    as: '/components/lists',
     label: 'Lists',
   },
   {
-    to: '/demos?demo=loading',
-    as: '/demos/loading',
+    to: '/components/component?component=loading',
+    as: '/components/loading',
     label: 'Loading',
   },
   {
-    to: '/demos?demo=menus',
-    as: '/demos/menus',
+    to: '/components/component?component=menus',
+    as: '/components/menus',
     label: 'Menus',
   },
   {
-    to: '/demos?demo=sliders',
-    as: '/demos/sliders',
+    to: '/components/component?component=sliders',
+    as: '/components/sliders',
     label: 'Sliders',
   },
   {
-    to: '/demos?demo=snackbar',
-    as: '/demos/snackbar',
+    to: '/components/component?component=snackbar',
+    as: '/components/snackbar',
     label: 'Snackbar',
   },
   {
-    to: '/demos?demo=tables',
-    as: '/demos/tables',
+    to: '/components/component?component=tables',
+    as: '/components/tables',
     label: 'Tables',
   },
   {
-    to: '/demos?demo=textfields',
-    as: '/demos/textfields',
+    to: '/components/component?component=textfields',
+    as: '/components/textfields',
     label: 'Text Fields',
   },
   {
-    to: '/demos?demo=toggles',
-    as: '/demos/toggles',
+    to: '/components/component?component=toggles',
+    as: '/components/toggles',
     label: 'Toggles',
   },
   {
-    to: '/demos?demo=tooltips',
-    as: '/demos/tooltips',
+    to: '/components/component?component=tooltips',
+    as: '/components/tooltips',
     label: 'Tooltips',
   },
 ]

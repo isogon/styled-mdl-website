@@ -4,6 +4,7 @@ import { shadow4dp, util, Spacer } from 'styled-mdl'
 
 import AppName from './AppName'
 import GithubLink from './GithubLink'
+import TopNav from './TopNav'
 
 const { getters: g } = util
 
@@ -21,6 +22,7 @@ const Header = styled.header`
 export default () => (
   <Header>
     <AppName />
+    <TopNav />
     <Spacer />
     <GithubLink />
   </Header>
